@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chidiebere Mbonu — IT Support & Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0A0F1E;
+  --ink2:#131929;
+  --ink3:#1C2438;
+  --cyan:#00D4C8;
+  --cyan2:#00B8AD;
+  --cyan-dim:rgba(0,212,200,0.12);
+  --cyan-border:rgba(0,212,200,0.22);
+  --text:#E8EDF8;
+  --muted:#7A8BA8;
+  --muted2:#4A5A70;
+  --white:#F0F6FF;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Mulish',sans-serif;background:var(--ink);color:var(--text);overflow-x:hidden}
+
+/* CURSOR DOT */
+.cursor{width:8px;height:8px;background:var(--cyan);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transition:transform 0.15s;mix-blend-mode:screen}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 6%;background:rgba(10,15,30,0.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,212,200,0.1)}
+.nav-logo{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;color:var(--white);letter-spacing:-0.01em}
+.nav-logo span{color:var(--cyan)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.82rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--cyan)}
+.nav-hire{background:var(--cyan);color:var(--ink)!important;padding:0.45rem 1.1rem;border-radius:3px;font-weight:700!important;transition:background 0.2s!important}
+.nav-hire:hover{background:#00F0E2!important}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:7rem 6% 4rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 80% 40%,rgba(0,212,200,0.07) 0%,transparent 65%),radial-gradient(ellipse 30% 50% at 10% 80%,rgba(0,180,168,0.05) 0%,transparent 60%),var(--ink)}
+.dot-grid{position:absolute;inset:0;opacity:0.045;background-image:radial-gradient(var(--cyan) 1px,transparent 1px);background-size:32px 32px}
+.hero-inner{position:relative;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center;width:100%;max-width:1100px}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr}.hero-avatar-wrap{display:none}}
+.hero-tag{display:inline-flex;align-items:center;gap:0.6rem;background:var(--cyan-dim);border:1px solid var(--cyan-border);border-radius:2px;padding:0.3rem 0.9rem;font-size:0.73rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:1.6rem}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.0;letter-spacing:-0.03em;color:var(--white);margin-bottom:1.4rem}
+h1 .line2{color:var(--cyan)}
+.hero-sub{font-size:1rem;font-weight:300;color:var(--muted);line-height:1.8;max-width:480px;margin-bottom:2.4rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-main{display:inline-block;background:var(--cyan);color:var(--ink);text-decoration:none;padding:0.8rem 1.8rem;border-radius:3px;font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:700;letter-spacing:0.04em;transition:background 0.2s,transform 0.15s}
+.btn-main:hover{background:#00F0E2;transform:translateY(-2px)}
+.btn-ghost{display:inline-block;border:1px solid var(--cyan-border);color:var(--cyan);text-decoration:none;padding:0.8rem 1.8rem;border-radius:3px;font-size:0.88rem;font-weight:600;transition:border-color 0.2s,background 0.2s}
+.btn-ghost:hover{border-color:var(--cyan);background:var(--cyan-dim)}
+.hero-pills{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.06)}
+.pill{background:var(--ink3);border:1px solid rgba(255,255,255,0.07);border-radius:30px;padding:0.3rem 0.9rem;font-size:0.75rem;color:var(--muted);font-weight:500}
+.hero-avatar-wrap{position:relative}
+.avatar-ring{width:260px;height:260px;border-radius:50%;border:1px solid var(--cyan-border);display:flex;align-items:center;justify-content:center;position:relative;animation:spin-slow 20s linear infinite}
+@keyframes spin-slow{to{transform:rotate(360deg)}}
+.avatar-inner{width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,var(--ink3),var(--ink2));border:1px solid rgba(0,212,200,0.15);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;color:var(--cyan);animation:spin-slow 20s linear infinite reverse}
+.avatar-dot{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--cyan);top:0;left:50%;transform:translateX(-50%)}
+
+/* SECTION SHARED */
+section{padding:6rem 6%}
+.s-label{font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.7rem;font-weight:600}
+h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--white);line-height:1.1;margin-bottom:0.8rem;letter-spacing:-0.02em}
+.s-desc{font-size:0.95rem;color:var(--muted);line-height:1.75;max-width:500px}
+
+/* SKILLS */
+.skills{background:var(--ink2)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(0,212,200,0.08);border:1px solid rgba(0,212,200,0.08);border-radius:6px;overflow:hidden;margin-top:3rem}
+.skill-cat{background:var(--ink2);padding:2rem 1.8rem;transition:background 0.2s}
+.skill-cat:hover{background:var(--ink3)}
+.skill-cat-icon{font-size:1.6rem;margin-bottom:1rem}
+.skill-cat h3{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:1rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.stag{background:var(--ink3);border:1px solid rgba(255,255,255,0.06);border-radius:3px;padding:0.2rem 0.6rem;font-size:0.72rem;color:var(--muted);font-weight:500}
+
+/* EXPERIENCE */
+.exp{background:var(--ink)}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem}
+.timeline{display:flex;flex-direction:column;gap:0}
+.exp-item{display:grid;grid-template-columns:160px 1fr;gap:0 2.5rem;position:relative}
+@media(max-width:600px){.exp-item{grid-template-columns:1fr}}
+.exp-item::before{content:'';position:absolute;left:159px;top:8px;bottom:-8px;width:1px;background:rgba(0,212,200,0.15)}
+@media(max-width:600px){.exp-item::before{display:none}}
+.exp-item:last-child::before{display:none}
+.exp-meta{text-align:right;padding-top:0.1rem}
+@media(max-width:600px){.exp-meta{text-align:left;margin-bottom:0.5rem}}
+.exp-period{font-size:0.75rem;color:var(--muted2);font-weight:600;letter-spacing:0.05em}
+.exp-type{font-size:0.7rem;color:var(--cyan);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.2rem}
+.exp-body{padding:0 0 3rem 2rem;border-left:1px solid rgba(0,212,200,0.15);position:relative}
+@media(max-width:600px){.exp-body{border-left:none;padding:0 0 2rem 0}}
+.exp-dot{position:absolute;left:-5px;top:6px;width:9px;height:9px;background:var(--cyan);border-radius:50%;box-shadow:0 0 0 3px rgba(0,212,200,0.2)}
+@media(max-width:600px){.exp-dot{display:none}}
+.exp-role{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:0.2rem}
+.exp-company{font-size:0.82rem;color:var(--cyan);font-weight:600;margin-bottom:1rem}
+.exp-body ul{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.exp-body li{font-size:0.85rem;color:var(--muted);line-height:1.65;padding-left:1.2rem;position:relative}
+.exp-body li::before{content:'→';position:absolute;left:0;color:var(--cyan);font-size:0.7rem;top:0.1rem}
+
+/* CERTS */
+.certs{background:var(--ink2)}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:3rem}
+.cert-card{background:var(--ink3);border:1px solid rgba(0,212,200,0.1);border-radius:6px;padding:1.8rem;transition:border-color 0.2s,transform 0.2s}
+.cert-card:hover{border-color:var(--cyan-border);transform:translateY(-3px)}
+.cert-badge{width:44px;height:44px;background:var(--cyan-dim);border:1px solid var(--cyan-border);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.2rem}
+.cert-card h3{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:0.4rem}
+.cert-card p{font-size:0.78rem;color:var(--muted);line-height:1.5}
+.cert-year{display:inline-block;margin-top:1rem;font-size:0.7rem;color:var(--cyan);border:1px solid var(--cyan-border);border-radius:3px;padding:0.15rem 0.6rem;letter-spacing:0.06em}
+
+/* CONTACT */
+.contact{background:var(--ink)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+@media(max-width:768px){.contact-inner{grid-template-columns:1fr}}
+.contact-links{display:flex;flex-direction:column;gap:1rem;margin-top:2.5rem}
+.clink{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:var(--ink2);border:1px solid rgba(255,255,255,0.05);border-radius:5px;text-decoration:none;transition:border-color 0.2s,background 0.2s;color:inherit}
+.clink:hover{border-color:var(--cyan-border);background:var(--ink3)}
+.clink-icon{width:38px;height:38px;background:var(--cyan-dim);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.clink-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted2);margin-bottom:0.2rem}
+.clink-value{font-size:0.88rem;color:var(--white);font-weight:500}
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:0.4rem}
+label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted2);font-weight:600}
+input,textarea,select{background:var(--ink2);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:0.75rem 1rem;color:var(--text);font-family:'Mulish',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;-webkit-appearance:none}
+input:focus,textarea:focus{border-color:var(--cyan)}
+textarea{min-height:110px;resize:vertical}
+select option{background:var(--ink2)}
+
+/* FOOTER */
+footer{background:#060A14;padding:2rem 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(0,212,200,0.08)}
+.foot-logo{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--white)}
+.foot-logo span{color:var(--cyan)}
+.foot-copy{font-size:0.75rem;color:var(--muted2)}
+.foot-socials{display:flex;gap:1rem}
+.foot-socials a{font-size:0.75rem;color:var(--muted2);text-decoration:none;transition:color 0.2s}
+.foot-socials a:hover{color:var(--cyan)}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.1s}
+.reveal-d2{transition-delay:0.2s}
+.reveal-d3{transition-delay:0.3s}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">CM<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certs">Certifications</a></li>
+    <li><a href="#contact" class="nav-hire">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="dot-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Available for hire · Remote &amp; On-site</div>
+      <h1>Chidiebere<br><span class="line2">Mbonu.</span></h1>
+      <p class="hero-sub">IT Support Technician · Customer Service Pro · Website Developer with 4+ years building reliable tech solutions across telecoms, hospitality, and freelance platforms.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-main">Get In Touch</a>
+        <a href="https://www.fiverr.com/s/pd" target="_blank" class="btn-ghost">View Fiverr →</a>
+      </div>
+      <div class="hero-pills">
+        <span class="pill">🇳🇬 Nigeria</span>
+        <span class="pill">Google IT Certified</span>
+        <span class="pill">MTN · Airbnb · Fiverr</span>
+        <span class="pill">Open to Visa Sponsorship</span>
+        <span class="pill">Immediately Available</span>
+      </div>
+    </div>
+    <div class="hero-avatar-wrap">
+      <div class="avatar-ring">
+        <div class="avatar-dot"></div>
+        <div class="avatar-inner">CM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="reveal">
+    <div class="s-label">What I Bring</div>
+    <h2>Core Skills &<br>Competencies</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-cat reveal reveal-d1">
+      <div class="skill-cat-icon">🖥️</div>
+      <h3>IT Support</h3>
+      <div class="skill-tags">
+        <span class="stag">Troubleshooting</span>
+        <span class="stag">Remote Desktop</span>
+        <span class="stag">AnyDesk</span>
+        <span class="stag">TeamViewer</span>
+        <span class="stag">Hardware Diagnostics</span>
+        <span class="stag">Windows OS</span>
+        <span class="stag">Network Connectivity</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal reveal-d2">
+      <div class="skill-cat-icon">🌐</div>
+      <h3>Web Development</h3>
+      <div class="skill-tags">
+        <span class="stag">HTML/CSS</span>
+        <span class="stag">WordPress</span>
+        <span class="stag">Responsive Design</span>
+        <span class="stag">Website Maintenance</span>
+        <span class="stag">Performance Optimization</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal reveal-d3">
+      <div class="skill-cat-icon">🎧</div>
+      <h3>Customer Service</h3>
+      <div class="skill-tags">
+        <span class="stag">Client Communication</span>
+        <span class="stag">Problem Resolution</span>
+        <span class="stag">Complaint Handling</span>
+        <span class="stag">Booking Assistance</span>
+        <span class="stag">Multi-account Management</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal reveal-d1">
+      <div class="skill-cat-icon">🛠️</div>
+      <h3>Tools & Platforms</h3>
+      <div class="skill-tags">
+        <span class="stag">Microsoft Office</span>
+        <span class="stag">Canva</span>
+        <span class="stag">Fiverr</span>
+        <span class="stag">LinkedIn</span>
+        <span class="stag">Software Installation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="exp" id="experience">
+  <div class="exp-header reveal">
+    <div>
+      <div class="s-label">Career Journey</div>
+      <h2>Work Experience</h2>
+    </div>
+    <p class="s-desc">4+ years across telecommunications, remote customer support, and freelance tech services.</p>
+  </div>
+  <div class="timeline">
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">2024 – Present</div>
+        <div class="exp-type">Freelance</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-dot"></div>
+        <div class="exp-role">Freelance Website Developer & IT Support</div>
+        <div class="exp-company">Self-Employed / Fiverr · Remote</div>
+        <ul>
+          <li>Design and develop responsive, user-friendly websites for clients across various industries</li>
+          <li>Provide website maintenance, updates, and performance optimization services</li>
+          <li>Offer remote desktop support, software troubleshooting, and installation services</li>
+          <li>Deliver fast turnaround with 100% client satisfaction focus via Fiverr platform</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">May 2022 – Jun 2024</div>
+        <div class="exp-type">Part-time · Remote</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-dot"></div>
+        <div class="exp-role">Customer Service Representative</div>
+        <div class="exp-company">Airbnb · Remote</div>
+        <ul>
+          <li>Provided professional support to Airbnb guests and hosts globally</li>
+          <li>Handled inquiries, resolved complaints, and assisted with booking and technical issues</li>
+          <li>Managed multiple client accounts simultaneously while maintaining service quality</li>
+          <li>Ensured customer satisfaction through clear, timely, and professional communication</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Aug 2021 – Jan 2024</div>
+        <div class="exp-type">Part-time · On-site</div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-dot"></div>
+        <div class="exp-role">IT Support Technician</div>
+        <div class="exp-company">MTN Nigeria · Owerri, Nigeria</div>
+        <ul>
+          <li>Provided IT support and technical assistance to MTN customers and internal staff</li>
+          <li>Diagnosed and resolved software and hardware issues to minimize downtime</li>
+          <li>Assisted with network connectivity problems and system configuration</li>
+          <li>Maintained high satisfaction through clear communication and efficient problem-solving</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs" id="certs">
+  <div class="reveal">
+    <div class="s-label">Credentials</div>
+    <h2>Education &<br>Certifications</h2>
+  </div>
+  <div class="certs-grid">
+    <div class="cert-card reveal reveal-d1">
+      <div class="cert-badge">🎓</div>
+      <h3>Google IT Support Certificate</h3>
+      <p>Comprehensive IT support specialization covering networking, operating systems, system administration, and security.</p>
+      <div class="cert-year">Coursera · 2025</div>
+    </div>
+    <div class="cert-card reveal reveal-d2">
+      <div class="cert-badge">📈</div>
+      <h3>Forex Trading Certification</h3>
+      <p>Professional certification in forex trading strategies, risk management, and financial market analysis.</p>
+      <div class="cert-year">Habby Forex Academy · 2025</div>
+    </div>
+    <div class="cert-card reveal reveal-d3">
+      <div class="cert-badge">🌍</div>
+      <h3>Open to Global Opportunities</h3>
+      <p>Available for visa sponsorship to Canada, Australia, Germany, Singapore, and European Union countries.</p>
+      <div class="cert-year">Immediately Available</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="s-label">Let's Connect</div>
+      <h2>Ready to Work<br>Together?</h2>
+      <p class="s-desc">Open to remote, on-site, and hybrid roles worldwide. Let's build something great.</p>
+      <div class="contact-links">
+        <a href="tel:+2349132420175" class="clink">
+          <div class="clink-icon">📞</div>
+          <div>
+            <div class="clink-label">Phone</div>
+            <div class="clink-value">+234 913 242 0175</div>
+          </div>
+        </a>
+        <a href="mailto:Chidieberejuniormbonu@gmail.com" class="clink">
+          <div class="clink-icon">✉️</div>
+          <div>
+            <div class="clink-label">Email</div>
+            <div class="clink-value">Chidieberejuniormbonu@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/chidiebere-sixtus-mbonu-20b4a2347" target="_blank" class="clink">
+          <div class="clink-icon">💼</div>
+          <div>
+            <div class="clink-label">LinkedIn</div>
+            <div class="clink-value">linkedin.com/in/chidiebere-sixtus-mbonu</div>
+          </div>
+        </a>
+        <a href="https://www.fiverr.com/s/pd" target="_blank" class="clink">
+          <div class="clink-icon">🛒</div>
+          <div>
+            <div class="clink-label">Fiverr</div>
+            <div class="clink-value">fiverr.com/s/pd — View My Services</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="reveal">
+      <form class="contact-form" onsubmit="handleForm(event)">
+        <div class="fg">
+          <label>Your Name</label>
+          <input type="text" placeholder="John Smith" required>
+        </div>
+        <div class="fg">
+          <label>Email Address</label>
+          <input type="email" placeholder="john@company.com" required>
+        </div>
+        <div class="fg">
+          <label>Subject</label>
+          <select>
+            <option value="">Select a topic...</option>
+            <option>IT Support / Troubleshooting</option>
+            <option>Website Development</option>
+            <option>Customer Service Role</option>
+            <option>Full-time Job Opportunity</option>
+            <option>Visa Sponsorship Enquiry</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Message</label>
+          <textarea placeholder="Tell me about the opportunity or project..."></textarea>
+        </div>
+        <button type="submit" class="btn-main" style="border:none;cursor:pointer;width:100%;justify-content:center;text-align:center">Send Message →</button>
+        <div id="fs" style="display:none;color:#00D4C8;font-size:0.82rem;margin-top:0.4rem">✓ Message sent! I'll get back to you soon.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">CM<span>.</span></div>
+  <div class="foot-copy">© 2026 Chidiebere Sixtus Mbonu · Owerri, Nigeria</div>
+  <div class="foot-socials">
+    <a href="https://www.linkedin.com/in/chidiebere-sixtus-mbonu-20b4a2347" target="_blank">LinkedIn</a>
+    <a href="https://www.fiverr.com/s/pd" target="_blank">Fiverr</a>
+    <a href="mailto:Chidieberejuniormbonu@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script>
+const cur = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cur.style.left = e.clientX - 4 + 'px';
+  cur.style.top = e.clientY - 4 + 'px';
+});
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+function handleForm(e){
+  e.preventDefault();
+  document.getElementById('fs').style.display = 'block';
+  e.target.reset();
+}
+</script>
+</body>
+</html>
